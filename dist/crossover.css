@@ -341,3 +341,13 @@ img{height:auto}
 .mobile-nav{text-align:center}
 .site-footer,.footer-links,.footer-bottom{justify-content:center;text-align:center}
 @media(max-width:380px){.ticket-top .ticket-indicator{right:-6px}}
+
+/* Keep attraction hours prominent and ticket-sales timing separate. */
+.event-facts .hours-range{font-size:20px;white-space:nowrap}
+.venue-time .hours-label{display:block;font-size:10px;letter-spacing:1px;text-transform:uppercase}
+.venue-time .hours-range{display:block;font-size:23px;line-height:1.6;white-space:nowrap}
+.box-office-note{display:block;margin-top:17px;padding-top:13px;border-top:1px solid var(--hairline);font-size:12px;line-height:1.8;color:var(--text-secondary)}
+@media(max-width:650px){
+  .event-facts{grid-template-columns:1fr}
+  .event-facts>div.hours-fact{border-top:1px solid var(--hairline);padding-top:20px}
+}

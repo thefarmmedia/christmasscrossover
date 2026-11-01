@@ -34,12 +34,12 @@
     if (current || !next) {
       clock.hidden = true;
       clockLabel.textContent = current ? 'The fright is on tonight' : 'The 2026 event has ended';
-      clockDate.textContent = current ? '7 PM–11 PM · BRANSON, MO' : 'THANK YOU FOR THE SCREAMS';
+      clockDate.textContent = current ? '7 PM to 11 PM · Central Time' : 'THANK YOU FOR THE SCREAMS';
       return;
     }
     clock.hidden = false;
-    clockLabel.textContent = next === starts[0] ? 'The nightmare begins in' : 'The next fright begins in';
-    clockDate.textContent = `${dateFormat.format(next).toUpperCase()} · 7 PM · BRANSON, MO`;
+    clockLabel.textContent = next === starts[0] ? 'Opening night countdown' : 'Next fright countdown';
+    clockDate.textContent = `${dateFormat.format(next).toUpperCase()} · 7 PM to 11 PM`;
     const minutes = Math.max(0, Math.floor((next.getTime() - now) / 60000));
     document.getElementById('count-days').textContent = String(Math.floor(minutes / 1440)).padStart(2, '0');
     document.getElementById('count-hours').textContent = String(Math.floor(minutes / 60) % 24).padStart(2, '0');
