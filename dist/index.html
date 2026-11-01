@@ -19,10 +19,10 @@
   <link rel="stylesheet" href="styles.css?v=8">
   <link rel="stylesheet" href="atmosphere.css?v=8">
   <link rel="stylesheet" href="brand-refresh.css?v=16">
-  <link rel="stylesheet" href="crossover.css?v=6">
+  <link rel="stylesheet" href="crossover.css?v=7">
   <script src="app.js?v=15" defer></script>
   <script src="atmosphere.js?v=10" defer></script>
-  <script src="crossover.js?v=3" defer></script>
+  <script src="crossover.js?v=4" defer></script>
 </head>
 <body class="haunted-theme">
   <div class="world-backdrop" aria-hidden="true"></div>
@@ -66,14 +66,14 @@
       <a class="scroll-cue" href="#experience" aria-label="Explore the experience"><span>STEP INTO THE NIGHTMARE</span><span>↓</span></a>
       <div class="hero-seal" aria-hidden="true"><span>BRANSON, MISSOURI</span><strong>ENTER<br>IF YOU DARE</strong><svg aria-hidden="true"><use href="#snowflake"/></svg></div>
       <div class="hero-countdown" id="countdown-panel" hidden>
-        <div class="countdown-copy"><span id="countdown-label">The nightmare begins in</span><strong id="countdown-date">NOV 6 · 7 PM · BRANSON, MO</strong></div>
+        <div class="countdown-copy"><span id="countdown-label">Opening night countdown</span><strong id="countdown-date">NOV 6 · 7 PM to 11 PM</strong></div>
         <div class="countdown-clock" id="fright-countdown" aria-label="Time until the next event"><span><strong id="count-days">00</strong><small>Days</small></span><span><strong id="count-hours">00</strong><small>Hours</small></span><span><strong id="count-minutes">00</strong><small>Mins</small></span></div>
       </div>
     </section>
 
-    <div class="event-facts" aria-label="Event essentials">
+    <div class="event-facts" id="event-info" aria-label="Event essentials">
       <div><svg aria-hidden="true"><use href="#calendar"/></svg><p><span>EVENT DATES</span><strong>Nov. 6, 7, 13 & 14</strong></p></div>
-      <div><svg aria-hidden="true"><use href="#clock"/></svg><p><span>ATTRACTION HOURS</span><strong>7 PM – 11 PM</strong><small>Box office opens at 6 PM</small></p></div>
+      <div class="hours-fact"><svg aria-hidden="true"><use href="#clock"/></svg><p><span>ATTRACTION HOURS</span><strong class="hours-range">7 PM to 11 PM</strong><small>All four nights · Central Time</small></p></div>
       <div><svg aria-hidden="true"><use href="#pin"/></svg><p><span>LOCATION</span><strong>Branson, Missouri</strong><small>1000 Pat Nash Drive</small></p></div>
     </div>
 
@@ -96,10 +96,10 @@
         <div class="section-heading" data-reveal><div><p class="eyebrow"><span class="section-number">02</span> MARK YOUR CALENDAR</p><h2 id="dates-title">PICK YOUR<br><span class="green">FRIGHT NIGHT.</span></h2></div><div class="date-intro"><p class="opening-status" id="opening-status">OPENING NIGHT · NOVEMBER 6</p><p>Two weekends. Four chances to scream.<br>All times are local to Branson (Central Time).</p></div></div>
         <p class="date-help" id="date-choice-help">Select a night to save to your calendar.</p>
         <fieldset class="date-options" aria-describedby="date-choice-help"><legend class="sr-only">Choose a night to add to your calendar</legend>
-          <label class="date-ticket"><input type="radio" name="event-date" value="2026-11-06" checked><span class="ticket-top"><span>NOVEMBER 2026</span><span class="ticket-indicator" aria-hidden="true"></span></span><span class="ticket-date">06</span><span class="ticket-bottom"><span>FRIDAY</span><span>7 PM – 11 PM</span></span></label>
-          <label class="date-ticket"><input type="radio" name="event-date" value="2026-11-07"><span class="ticket-top"><span>NOVEMBER 2026</span><span class="ticket-indicator" aria-hidden="true"></span></span><span class="ticket-date">07</span><span class="ticket-bottom"><span>SATURDAY</span><span>7 PM – 11 PM</span></span></label>
-          <label class="date-ticket"><input type="radio" name="event-date" value="2026-11-13"><span class="ticket-top"><span>NOVEMBER 2026</span><span class="ticket-indicator" aria-hidden="true"></span></span><span class="ticket-date unlucky-date">13</span><span class="ticket-bottom"><span>FRIDAY THE 13TH</span><span>7 PM – 11 PM</span></span></label>
-          <label class="date-ticket"><input type="radio" name="event-date" value="2026-11-14"><span class="ticket-top"><span>NOVEMBER 2026</span><span class="ticket-indicator" aria-hidden="true"></span></span><span class="ticket-date">14</span><span class="ticket-bottom"><span>SATURDAY</span><span>7 PM – 11 PM</span></span></label>
+          <label class="date-ticket"><input type="radio" name="event-date" value="2026-11-06" checked><span class="ticket-top"><span>NOVEMBER 2026</span><span class="ticket-indicator" aria-hidden="true"></span></span><span class="ticket-date">06</span><span class="ticket-bottom"><span>FRIDAY</span><span>7 PM to 11 PM</span></span></label>
+          <label class="date-ticket"><input type="radio" name="event-date" value="2026-11-07"><span class="ticket-top"><span>NOVEMBER 2026</span><span class="ticket-indicator" aria-hidden="true"></span></span><span class="ticket-date">07</span><span class="ticket-bottom"><span>SATURDAY</span><span>7 PM to 11 PM</span></span></label>
+          <label class="date-ticket"><input type="radio" name="event-date" value="2026-11-13"><span class="ticket-top"><span>NOVEMBER 2026</span><span class="ticket-indicator" aria-hidden="true"></span></span><span class="ticket-date unlucky-date">13</span><span class="ticket-bottom"><span>FRIDAY THE 13TH</span><span>7 PM to 11 PM</span></span></label>
+          <label class="date-ticket"><input type="radio" name="event-date" value="2026-11-14"><span class="ticket-top"><span>NOVEMBER 2026</span><span class="ticket-indicator" aria-hidden="true"></span></span><span class="ticket-date">14</span><span class="ticket-bottom"><span>SATURDAY</span><span>7 PM to 11 PM</span></span></label>
         </fieldset>
         <div class="date-selection"><div><p class="selected-night" id="selected-night" aria-live="polite">Your night: Friday, November 6</p><p class="selection-note">Ticket purchases and availability are handled on the official website.</p></div><div class="date-actions"><button class="button button-outline" id="calendar-button"><svg aria-hidden="true"><use href="#calendar"/></svg> Save to calendar</button><a class="button" href="https://www.fieldofscreamsbranson.com/" target="_blank" rel="noopener noreferrer">Get tickets <svg aria-hidden="true"><use href="#external"/></svg></a></div></div>
         <p class="calendar-note">Calendar reminders do not reserve admission. All event times are Central Time.</p>
@@ -109,7 +109,7 @@
 
     <section class="visit section-wrap" id="visit" aria-labelledby="visit-title">
       <div class="visit-copy" data-reveal><p class="eyebrow"><span class="section-number">03</span> FIND YOUR WAY TO THE FRIGHT</p><h2 id="visit-title">MEET US<br><span class="red">AFTER DARK.</span></h2>
-        <div class="venue-panel"><div class="venue-heading"><svg aria-hidden="true"><use href="#pin"/></svg><span>FIELD OF SCREAMS BRANSON</span></div><p class="venue-name">BALLPARKS OF AMERICA</p><address>1000 Pat Nash Drive<br>Branson, MO 65616</address><div class="venue-time"><svg aria-hidden="true"><use href="#clock"/></svg><p>Box office opens <strong>6 PM</strong><br>Attraction hours <strong>7 PM – 11 PM</strong></p></div><div class="venue-contact"><a href="tel:+14173194555">(417) 319-4555 <svg aria-hidden="true"><use href="#external"/></svg></a><a href="mailto:info@fieldofscreamsbranson.com">Email the team <svg aria-hidden="true"><use href="#external"/></svg></a></div></div>
+        <div class="venue-panel"><div class="venue-heading"><svg aria-hidden="true"><use href="#pin"/></svg><span>FIELD OF SCREAMS BRANSON</span></div><p class="venue-name">BALLPARKS OF AMERICA</p><address>1000 Pat Nash Drive<br>Branson, MO 65616</address><div class="venue-time"><svg aria-hidden="true"><use href="#clock"/></svg><p><span class="hours-label">Attraction hours</span><strong class="hours-range">7 PM to 11 PM</strong><span class="box-office-note">Box office ticket sales begin at 6 PM.</span></p></div><div class="venue-contact"><a href="tel:+14173194555">(417) 319-4555 <svg aria-hidden="true"><use href="#external"/></svg></a><a href="mailto:info@fieldofscreamsbranson.com">Email the team <svg aria-hidden="true"><use href="#external"/></svg></a></div></div>
         <a class="underlined-link" href="https://www.google.com/maps/dir/?api=1&destination=1000+Pat+Nash+Dr+Branson+MO+65616" target="_blank" rel="noopener noreferrer">Get directions to Ballparks <svg aria-hidden="true"><use href="#external"/></svg></a>
         <div class="venue-cameo"><a class="character-peek nutcracker-peek" data-gallery href="assets/holiday-nutcracker-photo.jpg" target="_blank" rel="noopener noreferrer" aria-label="View the original nutcracker photograph" data-photo-alt="The red-and-gold nutcracker character holding a long pointed prop" data-caption="A toy soldier with a twisted holiday spirit."><img src="assets/holiday-nutcracker-cutout.webp" width="1024" height="1536" alt="A sinister nutcracker in a red-and-gold uniform, shown from hat to boots" loading="lazy"><span class="peek-label">View photo <svg aria-hidden="true"><use href="#external"/></svg></span></a></div>
       </div>
