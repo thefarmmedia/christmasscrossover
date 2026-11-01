@@ -70,3 +70,9 @@ The top-left wordmark and navigation stay at the top of the page and scroll out 
 ## GitHub and Netlify
 
 This is a portable static site. The root `netlify.toml` publishes `dist/` with no build command. See `GITHUB-NETLIFY.md` for repository setup, deployment, and the files to edit.
+
+## Christmas Crossover refresh
+
+The event title and FOS emblem remain the main hero artwork. Transparent Santa and snowman accents appear in the story and FAQ sections; selecting either opens the original supplied photograph in an accessible gallery. Added a live countdown to the next event, clearer typography, updated calendar/share URLs for Netlify, and larger mobile text while preserving the inset content area, bottom ticket button, crystal snowfall, and local light flicker. New layout and gallery code are in `dist/crossover.css` and `dist/crossover.js`.
+
+Character cutouts were made with the built-in image generation tool and preserved as lossless WebP with real alpha. See `ASSET-NOTES.md` for source and prompt details.

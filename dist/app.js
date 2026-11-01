@@ -66,10 +66,11 @@
       updateSelection();
     }
     const start = eventTime(next.value, '19');
-    const days = Math.ceil((start - now) / 86400000);
+    const hours = (start - now) / 3600000;
+    const days = Math.floor(hours / 24);
     if (now >= start) status.textContent = 'THE FRIGHT IS ON TONIGHT';
-    else if (days === 1) status.textContent = 'THE NEXT FRIGHT IS LESS THAN A DAY AWAY';
-    else status.textContent = `${days} DAYS UNTIL ${next === radios[0] ? 'OPENING NIGHT' : 'THE NEXT FRIGHT'}`;
+    else if (hours < 24) status.textContent = 'THE NEXT FRIGHT IS LESS THAN A DAY AWAY';
+    else status.textContent = `${days} DAY${days === 1 ? '' : 'S'} UNTIL ${next === radios[0] ? 'OPENING NIGHT' : 'THE NEXT FRIGHT'}`;
   }
 
   radios.forEach(radio => radio.addEventListener('change', updateSelection));
@@ -102,8 +103,8 @@
       `DTEND:${icsDate(eventTime(date, '23'))}`,
       'SUMMARY:The Fright Before Christmas - Field of Screams Branson',
       `LOCATION:${icsEscape('Ballparks of America, 1000 Pat Nash Drive, Branson, MO 65616')}`,
-      `DESCRIPTION:${icsEscape('Halloween / Christmas crossover at Field of Screams Branson. Box office opens at 6 PM Central. Attraction hours are 7 PM to 11 PM Central. This calendar entry is not an admission ticket. Open the ticket buttons at https://fright-before-christmas-branson-2026-sg.briskmars1028.chatgpt.site/#dates for tickets and availability.')}`,
-      'URL:https://fright-before-christmas-branson-2026-sg.briskmars1028.chatgpt.site/#dates',
+      `DESCRIPTION:${icsEscape('Halloween / Christmas crossover at Field of Screams Branson. Box office opens at 6 PM Central. Attraction hours are 7 PM to 11 PM Central. This calendar entry is not an admission ticket. Open the ticket buttons at https://christmascrossover.netlify.app/#dates for tickets and availability.')}`,
+      'URL:https://christmascrossover.netlify.app/#dates',
       'END:VEVENT', 'END:VCALENDAR', ''
     ].join('\r\n');
     const blob = new Blob([body], { type: 'text/calendar;charset=utf-8' });
