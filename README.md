@@ -61,7 +61,7 @@ Added responsive 30–48px side gutters to the mobile hero, content sections, an
 
 ## Mobile ticket button
 
-The green Get Tickets button stays at the bottom of mobile screens, with safe-area spacing and room beneath the footer. The mobile header shows the wordmark and menu. Desktop retains its header button. The small entrance animation respects reduced-motion preferences.
+The green Get Tickets button appears at the bottom of mobile screens after the main hero ticket button scrolls out of view, and hides again when returning to the hero. It starts hidden to avoid duplicate buttons on arrival, with safe-area spacing and room beneath the footer. The mobile header shows the wordmark and menu. Desktop retains its header button. The small entrance animation respects reduced-motion preferences.
 
 ## Header scrolling
 
