@@ -80,3 +80,7 @@ Character cutouts were made with the built-in image generation tool and preserve
 ## Professional finish
 
 The `crossover.css` design system sets a shared reading width, consistent section spacing, larger body text, one green ticket-button style, straight image frames, simple date cards, and a quieter backdrop behind the content. The event art stays in the hero; the two characters remain secondary accents. The calendar selection explains its purpose, and the photo viewer includes a photo counter, 44px controls, keyboard navigation, and restored focus/scrolling when closed.
+
+## Centered content
+
+Headings, body copy, date-card details, calendar actions, event essentials, venue information, FAQs, and footer controls use centered alignment. Desktop image/text columns are retained, and the transparent header logo remains in its top-left position. The responsive content gutters and fixed mobile ticket action are preserved.
