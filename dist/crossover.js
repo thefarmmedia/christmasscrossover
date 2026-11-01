@@ -1,6 +1,23 @@
 (() => {
   'use strict';
 
+  const mobileTicketBar = document.querySelector('.mobile-ticket-bar');
+  const heroTicket = document.querySelector('.hero-actions .button');
+  if (mobileTicketBar && heroTicket) {
+    // Keep the first view clear; offer the fixed action after the main one passes.
+    const syncTicketBar = () => {
+      mobileTicketBar.hidden = heroTicket.getBoundingClientRect().bottom > 0;
+    };
+    syncTicketBar();
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(syncTicketBar).observe(heroTicket);
+    } else {
+      window.addEventListener('scroll', syncTicketBar, { passive: true });
+    }
+    window.addEventListener('resize', syncTicketBar, { passive: true });
+    window.addEventListener('pageshow', syncTicketBar);
+  }
+
   const starts = [...document.querySelectorAll('input[name="event-date"]')]
     .map(input => new Date(`${input.value}T19:00:00-06:00`));
   const clock = document.getElementById('fright-countdown');
