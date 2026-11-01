@@ -1,0 +1,89 @@
+/* Transparent identity graphics sit directly on the Christmas atmosphere. */
+.site-header{position:relative;top:auto;background:transparent;backdrop-filter:none;box-shadow:none}
+.brand{mix-blend-mode:normal}
+.brand img{object-fit:contain;transform:none}
+.brand,.brand img,.hero-wordmark,.event-art{background:transparent;box-shadow:none}
+.hero-wordmark{mix-blend-mode:normal;filter:none}
+.event-art{mix-blend-mode:normal;-webkit-mask-image:none;mask-image:none}
+.hero{min-height:0;background:transparent}
+.hero-scene{background:radial-gradient(ellipse at 70% 40%,#30000060,transparent 65%)}
+.hero-vignette{background:linear-gradient(0deg,#030303a6,transparent 30%)}
+.hero-inner{display:grid;grid-template-columns:minmax(0,1.16fr) minmax(0,.84fr);align-items:center;gap:30px;padding:58px 60px 65px}
+.hero-copy-block{width:100%;max-width:650px;margin:0 auto;min-width:0}
+.hero-wordmark{width:100%}
+.event-art{width:142%;margin-left:-21%}
+.hero-emblem{position:relative;width:100%;max-width:460px;aspect-ratio:1;justify-self:center;filter:drop-shadow(0 8px 24px #0008)}
+.hero-emblem>img{width:100%;height:100%;object-fit:contain}
+.hero-seal{display:none}
+.brand-divider{display:flex;align-items:center;justify-content:center;height:180px;overflow:hidden;padding:0 35px;background:linear-gradient(90deg,transparent,#080000a3,transparent);border-top:1px solid #98000070;border-bottom:1px solid #98000070}
+.brand-divider img{display:block;width:min(100%,1000px);height:auto;flex-shrink:0}
+.final-cta:before,.final-light-host{display:none}
+.final-cta{background:radial-gradient(ellipse at center,#24000075,transparent 70%);padding-top:50px}
+.closing-wordmark{display:block;width:min(85%,650px);height:auto;margin:0 auto 22px}
+.footer-brand.badge-brand{width:100px;height:100px;mix-blend-mode:normal}
+.badge-brand img{position:static;width:100%;height:100%;object-fit:contain;transform:none}
+@media(min-width:1550px){.hero-inner{padding-top:72px;padding-bottom:78px}.hero-emblem{max-width:500px}}
+@media(max-width:1100px){.hero-inner{padding:53px 35px 58px;gap:20px}.hero-emblem{max-width:390px}.hero-tagline{font-size:23px}}
+@media(max-width:800px){.hero-inner{padding:45px 28px 50px;gap:16px}.hero-tagline{font-size:20px}.hero-actions{gap:18px}.hero-actions .button{min-width:185px;font-size:10px}.hero-dates{font-size:7px;gap:10px}.hero-dates strong{font-size:9px;padding-left:10px}.brand-divider{height:135px}.closing-wordmark{width:min(85%,580px)}}
+@media(max-width:700px){.hero-inner{display:flex;flex-direction:column;padding:30px 0 40px;gap:12px}.hero-emblem{order:-1;width:68%;max-width:285px;margin:0 auto 4px}.hero-copy-block{width:100%}.hero-eyebrow{margin-left:18px;margin-right:18px}.hero-wordmark{width:100%}.event-art{width:138%;margin-left:-19%}.hero-tagline{font-size:23px}.hero-copy{font-size:12px}.hero-actions{gap:22px}.hero-actions .button{min-width:220px;font-size:11px}.hero-dates{font-size:8px;gap:12px}.hero-dates strong{font-size:9px;padding-left:12px}.brand-divider{height:120px;padding:0 20px}}
+@media(max-width:550px){.hero-emblem{width:68%;max-width:265px}.hero-inner{padding-top:24px;padding-bottom:36px}.hero-tagline{font-size:22px}.hero-copy{font-size:11px}.hero-actions{gap:8px}.hero-actions .button{min-width:252px;font-size:12px}.hero-dates{font-size:7px}.hero-dates strong{font-size:8px}.brand-divider{height:105px;padding:0 15px}.final-cta{padding-top:28px}.closing-wordmark{width:98%;margin-bottom:22px}.footer-brand.badge-brand{width:110px;height:110px}}
+@media(max-width:360px){.hero-tagline{font-size:20px}.hero-emblem{max-width:235px}}
+.mobile-frame{display:none}
+/* Render crisp, proportionate edge strips instead of stretching the full frame. */
+@media(max-width:800px){
+  .world-backdrop{background-image:none;background-size:auto;background-repeat:no-repeat;-webkit-mask-image:none;mask-image:none}
+  .world-backdrop>.light-layer{display:none}
+  .mobile-frame{display:block;position:absolute;top:0;bottom:0;width:clamp(54px,18vw,90px);background-image:url('assets/haunted-christmas-backdrop.webp');background-size:600px 400px;background-repeat:repeat-y;background-position:left top;-webkit-mask-image:linear-gradient(90deg,#000 0%,#000 35%,transparent 100%),repeating-linear-gradient(180deg,transparent 0,#000 12px,#000 388px,transparent 400px);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,#000 0%,#000 35%,transparent 100%),repeating-linear-gradient(180deg,transparent 0,#000 12px,#000 388px,transparent 400px);mask-composite:intersect}
+  .mobile-frame-left{left:0}
+  .mobile-frame-right{right:0;background-position:right top;-webkit-mask-image:linear-gradient(270deg,#000 0%,#000 35%,transparent 100%),repeating-linear-gradient(180deg,transparent 0,#000 12px,#000 388px,transparent 400px);mask-image:linear-gradient(270deg,#000 0%,#000 35%,transparent 100%),repeating-linear-gradient(180deg,transparent 0,#000 12px,#000 388px,transparent 400px)}
+  .hero:after{display:none}
+  .world-backdrop .practical-light:after{background:radial-gradient(ellipse,rgba(255,255,245,.55) 0%,rgba(var(--light-color),.68) 12%,rgba(var(--light-color),.08) 30%,transparent 55%)}
+}
+/* Keep mobile content inside a clear reading area, away from the lit frame. */
+@media(max-width:700px){
+  body{--mobile-content-gutter:clamp(30px,10vw,48px)}
+  .hero-inner{padding:26px var(--mobile-content-gutter) 40px;gap:18px}
+  .hero-emblem{width:82%;max-width:265px}
+  .hero-copy-block,.hero-wordmark{width:100%}
+  .hero-wordmark{-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
+  .event-art{display:block;width:132%;max-width:none;margin:0 0 0 -16%}
+  .hero-eyebrow{flex-wrap:wrap;margin:0 0 16px;gap:5px 10px;font-size:7px;letter-spacing:1px}
+  .hero-tagline{margin:18px 0 12px;font-size:clamp(20px,5.5vw,24px);text-wrap:balance}
+  .hero-copy{margin:0 0 24px;font-size:12px}
+  .hero-actions{flex-direction:column;padding:0;gap:12px}
+  .hero-actions .button{width:100%;max-width:310px;min-width:0;padding-inline:16px;font-size:12px}
+  .hero-dates{flex-wrap:wrap;gap:10px;letter-spacing:1px}
+  .hero-dates strong{white-space:nowrap;padding-left:10px}
+  .section-wrap,.event-facts,.brand-divider,.final-cta{padding-left:var(--mobile-content-gutter);padding-right:var(--mobile-content-gutter)}
+  .section-wrap h2{font-size:clamp(30px,8.5vw,42px);letter-spacing:-1px}
+  .experience,.visit{grid-template-columns:1fr}
+  .experience-art img{height:auto;max-height:520px;object-fit:cover}
+  .brand-divider{height:110px}
+  .closing-wordmark{width:100%}
+  .final-cta h2{font-size:clamp(28px,8.5vw,38px)}
+  .final-cta .button{width:100%;max-width:310px;min-width:0}
+  .venue-contact{flex-wrap:wrap;row-gap:12px}
+  .site-footer{margin-inline:var(--mobile-content-gutter);padding-inline:0}
+  .footer-links{flex-wrap:wrap;gap:12px 16px}
+  .footer-bottom{justify-content:center;text-align:center}
+}
+@media(max-width:550px){
+  .date-actions{grid-template-columns:1fr}
+  .date-actions .button{font-size:10px;letter-spacing:.4px}
+}
+@media(max-width:380px){
+  .event-facts{grid-template-columns:1fr;gap:18px}
+  .event-facts>div,.event-facts>div:first-child,.event-facts>div:nth-child(2),.event-facts>div:last-child{grid-column:auto;justify-content:flex-start;border:0;padding:0;margin:0}
+  .event-facts>div:last-child p{display:block}
+  .event-facts>div:last-child small{border:0;padding:0}
+}
+.mobile-ticket-bar{display:none}
+@media(max-width:800px){
+  html{scroll-padding-bottom:calc(100px + env(safe-area-inset-bottom))}
+  body{padding-bottom:calc(94px + env(safe-area-inset-bottom))}
+  .site-header .nav-actions>.button-small{display:none}
+  .mobile-ticket-bar{position:fixed;z-index:70;inset:auto 0 0;display:flex;justify-content:center;padding:14px max(var(--mobile-content-gutter,24px),env(safe-area-inset-right)) calc(14px + env(safe-area-inset-bottom)) max(var(--mobile-content-gutter,24px),env(safe-area-inset-left));background:linear-gradient(180deg,transparent,#030303d9 40%,#030303f2);pointer-events:none;animation:ticket-reveal .35s ease-out both}
+  .mobile-ticket-bar .button{pointer-events:auto;width:100%;max-width:420px;min-height:56px;padding:15px 20px;font-size:13px;gap:16px}
+  .toast{bottom:calc(104px + env(safe-area-inset-bottom))}
+}
+@keyframes ticket-reveal{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
