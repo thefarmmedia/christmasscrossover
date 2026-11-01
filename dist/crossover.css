@@ -267,7 +267,7 @@ img{height:auto}
   .toast{bottom:calc(102px + env(safe-area-inset-bottom));font-size:12px}
 }
 @media(max-width:650px){
-  :root{--section-gutter:clamp(30px,8vw,42px);--section-space:59px}
+  :root{--section-gutter:clamp(38px,10vw,54px);--section-space:59px}
   .announcement{min-height:30px;font-size:8px;letter-spacing:.45px;gap:9px;padding:7px 8px}.announcement svg{width:11px;height:11px}
   .nav-wrap{padding-inline:20px;gap:18px;min-height:78px}.site-header .brand{width:190px;height:64px}
   .hero-inner{display:flex;flex-direction:column;gap:0;padding:30px var(--section-gutter) 27px}
@@ -291,7 +291,7 @@ img{height:auto}
   .photo-dialog{width:calc(100vw - 24px);max-height:92dvh}.photo-dialog-top{padding:12px 13px}.photo-dialog-top strong{font-size:11px;letter-spacing:0}.photo-dialog figure img{height:59dvh}.photo-dialog figcaption{padding:15px 16px;font-size:12px}.photo-dialog-nav{gap:6px;padding:8px 9px}.photo-dialog-nav button{font-size:11px;padding:8px 5px}#gallery-index{font-size:10px}
 }
 @media(max-width:380px){
-  :root{--section-gutter:30px}
+  :root{--section-gutter:38px}
   .announcement{font-size:7px;letter-spacing:.25px;gap:7px}.nav-wrap{padding-inline:17px;gap:14px}.site-header .brand{width:174px;height:61px}
   .hero-inner{padding-top:26px}.hero-eyebrow{font-size:8px;letter-spacing:.4px}.hero-tagline{font-size:23px}.hero-copy{font-size:14px}.hero-summary{font-size:8px;letter-spacing:.4px;gap:5px}.hero-emblem{max-width:180px}
   .countdown-clock{gap:13px}.countdown-clock>span+span{padding-left:13px}.countdown-clock strong{font-size:26px}.countdown-clock small{font-size:9px}
@@ -340,3 +340,4 @@ img{height:auto}
 .faq-answer{padding-inline:20px;text-align:center}
 .mobile-nav{text-align:center}
 .site-footer,.footer-links,.footer-bottom{justify-content:center;text-align:center}
+@media(max-width:380px){.ticket-top .ticket-indicator{right:-6px}}
