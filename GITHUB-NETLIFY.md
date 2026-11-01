@@ -25,11 +25,12 @@ After connecting GitHub, commits to the production branch trigger Netlify deploy
 | Change | File |
 | --- | --- |
 | Wording, dates, button destinations, and image references | `dist/index.html` |
-| Mobile spacing, transparent branding, and the bottom ticket button | `dist/brand-refresh.css` |
-| General layout and colors | `dist/styles.css` |
+| Layout, typography, mobile spacing, button styles, and image frames | `dist/crossover.css` |
+| Base styles and the original frame treatment | `dist/styles.css` and `dist/brand-refresh.css` |
 | Snowflake size, drift, and bulb positions | `dist/atmosphere.js` |
 | Light flicker strength and timing | `dist/atmosphere.css` |
-| Date selection, countdown, and calendar downloads | `dist/app.js` |
+| Navigation, date selection, and calendar downloads | `dist/app.js` |
+| Live countdown, photo viewer, and section reveals | `dist/crossover.js` |
 | Website images | `dist/assets/` |
 
 All ticket buttons currently link to `https://www.fieldofscreamsbranson.com/`. When you have the direct purchase-page URL, replace that destination on the ticket buttons, including the mobile bottom button. Keep the footer's Official website link pointing to the main website.
@@ -38,7 +39,7 @@ When editing a stylesheet or script, increase its `?v=` number in `dist/index.ht
 
 ## Update the public address after the move
 
-Once the final Netlify or custom-domain address is chosen, update the canonical link, `og:url`, and absolute `og:image` address in `dist/index.html`. Update the calendar URL and description in `dist/app.js` to the new site's `/#dates` address. Leave relative asset paths as they are.
+The current public address is `https://christmascrossover.netlify.app/`. If a custom domain is added, update the canonical link, `og:url`, and absolute `og:image` address in `dist/index.html`. Update the calendar URL and description in `dist/app.js` to the new site's `/#dates` address. Leave relative asset paths as they are.
 
 ## Restore a change
 

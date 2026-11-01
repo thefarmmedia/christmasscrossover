@@ -76,3 +76,7 @@ This is a portable static site. The root `netlify.toml` publishes `dist/` with n
 The event title and FOS emblem remain the main hero artwork. Transparent Santa and snowman accents appear in the story and FAQ sections; selecting either opens the original supplied photograph in an accessible gallery. Added a live countdown to the next event, clearer typography, updated calendar/share URLs for Netlify, and larger mobile text while preserving the inset content area, bottom ticket button, crystal snowfall, and local light flicker. New layout and gallery code are in `dist/crossover.css` and `dist/crossover.js`.
 
 Character cutouts were made with the built-in image generation tool and preserved as lossless WebP with real alpha. See `ASSET-NOTES.md` for source and prompt details.
+
+## Professional finish
+
+The `crossover.css` design system sets a shared reading width, consistent section spacing, larger body text, one green ticket-button style, straight image frames, simple date cards, and a quieter backdrop behind the content. The event art stays in the hero; the two characters remain secondary accents. The calendar selection explains its purpose, and the photo viewer includes a photo counter, 44px controls, keyboard navigation, and restored focus/scrolling when closed.
