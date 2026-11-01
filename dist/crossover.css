@@ -304,3 +304,36 @@ img{height:auto}
   .reveal-ready [data-reveal]{opacity:1!important;transform:none!important}
   .button:hover,.date-ticket:hover,.character-peek:hover{transform:none}
 }
+
+/* Center the content consistently, including the stacked mobile sections. */
+.hero-copy-block,.section-wrap,.date-ticket,.venue-panel{text-align:center}
+.hero-eyebrow,.hero-actions,.hero-summary,.eyebrow,.story-details{justify-content:center}
+.hero-copy,.experience-copy>p:not(.eyebrow):not(.large-copy){margin-inline:auto}
+.hero-countdown{flex-direction:column;text-align:center;gap:19px}
+.countdown-clock{justify-content:center}
+.event-facts>div,.event-facts>div:first-child,.event-facts>div:nth-child(2),.event-facts>div:last-child{flex-direction:column;justify-content:center;align-items:center;text-align:center;padding-left:0;padding-right:0;gap:8px}
+.event-facts>div svg{margin-inline:auto}
+.event-facts>div p{width:100%;text-align:center}
+.section-heading{display:block;text-align:center}
+.date-intro{max-width:520px;margin:23px auto 0;padding:0}
+.date-help{text-align:center}
+.ticket-top{position:relative;display:block;text-align:center;padding-inline:0}
+.ticket-top>span:first-child{display:block}
+.ticket-top .ticket-indicator{position:absolute;right:0;top:50%;transform:translateY(-50%)}
+.ticket-date{text-align:center}
+.ticket-bottom{align-items:center;justify-content:center;text-align:center}
+.date-selection{flex-direction:column;align-items:center;text-align:center}
+.selection-note,.calendar-note,.noscript-note{margin-inline:auto}
+.date-actions{justify-content:center}
+.venue-heading,.venue-contact{justify-content:center;align-items:center}
+.venue-time{flex-direction:column;align-items:center;justify-content:center;gap:8px}
+.venue-time svg{margin-top:0}
+.venue-contact{margin-inline:auto}
+.experience-art figcaption{justify-content:center;flex-wrap:wrap;gap:8px 18px;text-align:center}
+.faq-cameo{flex-direction:column;justify-content:center;gap:15px;margin-inline:auto}
+.faq-cameo p{flex:none;margin:0;text-align:center}
+.faq-cameo .character-peek{flex:none}
+.faq-list summary{padding-inline:30px;text-align:center;text-wrap:balance}
+.faq-answer{padding-inline:20px;text-align:center}
+.mobile-nav{text-align:center}
+.site-footer,.footer-links,.footer-bottom{justify-content:center;text-align:center}
