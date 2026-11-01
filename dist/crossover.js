@@ -36,23 +36,30 @@
   const dialog = document.getElementById('character-gallery');
   const photo = document.getElementById('gallery-photo');
   const caption = document.getElementById('gallery-caption');
+  const photoIndex = document.getElementById('gallery-index');
   let activePhoto = 0;
   let opener;
+  let previousOverflow = '';
   function showPhoto(index) {
     activePhoto = (index + photos.length) % photos.length;
     const link = photos[activePhoto];
     photo.src = link.href;
     photo.alt = link.dataset.photoAlt;
     caption.textContent = link.dataset.caption;
+    if (photoIndex) photoIndex.textContent = `${activePhoto + 1} / ${photos.length}`;
   }
   if (dialog && typeof dialog.showModal === 'function') {
-    photos.forEach((link, index) => link.addEventListener('click', event => {
-      event.preventDefault();
-      opener = link;
-      showPhoto(index);
-      dialog.showModal();
-      document.body.style.overflow = 'hidden';
-    }));
+    photos.forEach((link, index) => {
+      link.setAttribute('aria-haspopup', 'dialog');
+      link.addEventListener('click', event => {
+        event.preventDefault();
+        opener = link;
+        showPhoto(index);
+        previousOverflow = document.body.style.overflow;
+        dialog.showModal();
+        document.body.style.overflow = 'hidden';
+      });
+    });
     dialog.querySelector('.photo-close').addEventListener('click', () => dialog.close());
     dialog.querySelector('[data-photo-prev]').addEventListener('click', () => showPhoto(activePhoto - 1));
     dialog.querySelector('[data-photo-next]').addEventListener('click', () => showPhoto(activePhoto + 1));
@@ -66,7 +73,7 @@
       if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) dialog.close();
     });
     dialog.addEventListener('close', () => {
-      document.body.style.overflow = '';
+      document.body.style.overflow = previousOverflow;
       opener?.focus({ preventScroll: true });
     });
   }
