@@ -351,3 +351,44 @@ img{height:auto}
   .event-facts{grid-template-columns:1fr}
   .event-facts>div.hours-fact{border-top:1px solid var(--hairline);padding-top:20px}
 }
+
+/* Google reviews and venue map */
+.google-rating {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 3px 8px;
+  min-height: 44px;
+  margin-top: 8px;
+  color: var(--text-primary);
+  font-size: 13px;
+  line-height: 1.5;
+}
+.google-rating .rating-star {
+  color: #f5ca66;
+  font-size: 17px;
+}
+.google-rating .review-count {
+  color: var(--text-secondary);
+}
+.google-rating svg {
+  width: 13px;
+  height: 13px;
+  color: var(--green);
+}
+.google-rating:hover strong {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.venue-map {
+  margin-top: 18px;
+  border: 1px solid var(--hairline);
+  background: var(--panel);
+}
+.venue-map iframe {
+  display: block;
+  width: 100%;
+  height: clamp(260px, 33vw, 350px);
+  border: 0;
+}
