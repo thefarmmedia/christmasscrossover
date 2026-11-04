@@ -434,3 +434,101 @@ img{height:auto}
   height: clamp(260px, 33vw, 350px);
   border: 0;
 }
+
+/* Advance ticket announcement */
+.ticket-alert {
+  display: flex;
+  align-items: stretch;
+  background: linear-gradient(90deg, #330808, #220606);
+  border-top: 2px solid var(--red);
+  border-bottom: 1px solid #a13132;
+  color: var(--text-primary);
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1.4;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+.ticket-alert-link {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+.ticket-alert-track {
+  display: flex;
+  width: max-content;
+  animation: ticket-alert-scroll 34s linear infinite;
+}
+.ticket-alert-run {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: space-around;
+  gap: 24px;
+  min-width: 100vw;
+  padding: 12px 24px 12px 0;
+  white-space: nowrap;
+}
+.ticket-alert-run > span:first-child {
+  padding-left: 24px;
+}
+.ticket-alert-dot,
+.ticket-alert-cta {
+  color: var(--green);
+}
+.ticket-alert-link:hover .ticket-alert-cta {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.ticket-alert-control {
+  display: grid;
+  place-items: center;
+  flex: 0 0 44px;
+  border-left: 1px solid #ffffff24;
+  cursor: pointer;
+}
+.ticket-alert-play-icon,
+.ticket-alert-pause:checked ~ .ticket-alert-control .ticket-alert-pause-icon {
+  display: none;
+}
+.ticket-alert-pause:checked ~ .ticket-alert-control .ticket-alert-play-icon {
+  display: inline;
+}
+.ticket-alert-link:hover .ticket-alert-track,
+.ticket-alert-link:focus-visible .ticket-alert-track,
+.ticket-alert-pause:checked ~ .ticket-alert-link .ticket-alert-track {
+  animation-play-state: paused;
+}
+.ticket-alert-link:focus-visible,
+.ticket-alert-pause:focus-visible ~ .ticket-alert-control {
+  outline: 2px solid var(--text-primary);
+  outline-offset: -3px;
+}
+@keyframes ticket-alert-scroll {
+  to { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ticket-alert-track {
+    width: 100%;
+    animation: none;
+  }
+  .ticket-alert-run {
+    flex: 1;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px 10px;
+    min-width: 0;
+    padding: 10px 14px;
+    white-space: normal;
+    text-align: center;
+  }
+  .ticket-alert-run > span:first-child {
+    padding-left: 0;
+  }
+  .ticket-alert-run[aria-hidden="true"],
+  .ticket-alert-end,
+  .ticket-alert-pause,
+  .ticket-alert-control {
+    display: none;
+  }
+}

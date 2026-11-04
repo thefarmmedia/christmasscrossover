@@ -23,7 +23,7 @@
   <link rel="stylesheet" href="styles.css?v=8">
   <link rel="stylesheet" href="atmosphere.css?v=8">
   <link rel="stylesheet" href="brand-refresh.css?v=16">
-  <link rel="stylesheet" href="crossover.css?v=10">
+  <link rel="stylesheet" href="crossover.css?v=11">
   <script src="app.js?v=15" defer></script>
   <script src="atmosphere.js?v=10" defer></script>
   <script src="crossover.js?v=4" defer></script>
@@ -42,7 +42,37 @@
     <symbol id="snowflake" viewBox="0 0 24 24"><path d="M12 2v20M3.34 7l17.32 10M3.34 17 20.66 7M9 4l3 3 3-3M9 20l3-3 3 3M3.6 10l4.1-1.1-1.1-4.1M20.4 14l-4.1 1.1 1.1 4.1M6.6 19.2l1.1-4.1-4.1-1.1M17.4 4.8l-1.1 4.1 4.1 1.1"/></symbol>
   </svg>
 
-  <div class="announcement"><span>HALLOWEEN ISN’T OVER YET.</span><svg aria-hidden="true"><use href="#snowflake"/></svg><span>CHRISTMAS JUST GOT SCARY.</span></div>
+  <div class="ticket-alert">
+    <input class="sr-only ticket-alert-pause" id="ticket-alert-pause" type="checkbox" aria-label="Pause scrolling ticket alert">
+    <a class="ticket-alert-link" href="#dates" aria-label="Tickets are selling fast for November 6, 7, 13, and 14. Sellouts are expected each night. Buy tickets in advance.">
+      <span class="ticket-alert-track">
+        <span class="ticket-alert-run">
+          <span>Tickets are selling fast</span>
+          <span class="ticket-alert-dot" aria-hidden="true">•</span>
+          <span>Nov. 6, 7, 13 &amp; 14</span>
+          <span class="ticket-alert-dot" aria-hidden="true">•</span>
+          <span>Sellouts expected each night</span>
+          <span class="ticket-alert-dot" aria-hidden="true">•</span>
+          <span class="ticket-alert-cta">Buy tickets in advance</span>
+          <span class="ticket-alert-dot ticket-alert-end" aria-hidden="true">•</span>
+        </span>
+        <span class="ticket-alert-run" aria-hidden="true">
+          <span>Tickets are selling fast</span>
+          <span class="ticket-alert-dot" aria-hidden="true">•</span>
+          <span>Nov. 6, 7, 13 &amp; 14</span>
+          <span class="ticket-alert-dot" aria-hidden="true">•</span>
+          <span>Sellouts expected each night</span>
+          <span class="ticket-alert-dot" aria-hidden="true">•</span>
+          <span class="ticket-alert-cta">Buy tickets in advance</span>
+          <span class="ticket-alert-dot ticket-alert-end" aria-hidden="true">•</span>
+        </span>
+      </span>
+    </a>
+    <label class="ticket-alert-control" for="ticket-alert-pause">
+      <span class="ticket-alert-pause-icon" aria-hidden="true">Ⅱ</span>
+      <span class="ticket-alert-play-icon" aria-hidden="true">▶</span>
+    </label>
+  </div>
   <header class="site-header">
     <div class="nav-wrap">
       <a class="brand" href="#home" aria-label="Field of Screams Branson home"><img src="assets/fos-header-lettering-only.webp" width="2172" height="724" alt="Field of Screams Branson"></a>
