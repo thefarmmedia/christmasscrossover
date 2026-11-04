@@ -354,30 +354,63 @@ img{height:auto}
 
 /* Google reviews and venue map */
 .google-rating {
-  display: inline-flex;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
   align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 3px 8px;
-  min-height: 44px;
-  margin-top: 8px;
+  gap: 12px;
+  width: min(100%, 305px);
+  min-height: 62px;
+  margin: 0 auto 16px;
+  padding: 10px 14px;
+  border: 1px solid #f5ca6652;
+  border-radius: 8px;
+  background: linear-gradient(115deg, #241c0e, #0c100b 86%);
   color: var(--text-primary);
-  font-size: 13px;
-  line-height: 1.5;
+  text-align: left;
 }
-.google-rating .rating-star {
+.google-rating .rating-score {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  padding-right: 12px;
+  border-right: 1px solid #f5ca663d;
+  white-space: nowrap;
+}
+.google-rating .rating-score strong {
+  font-size: 31px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+.google-rating .rating-score span {
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+.google-rating .rating-details {
+  display: grid;
+  gap: 4px;
+}
+.google-rating .rating-stars {
   color: #f5ca66;
   font-size: 17px;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
 }
 .google-rating .review-count {
-  color: var(--text-secondary);
+  color: var(--text-primary);
+  font-size: 12px;
+  line-height: 1.4;
 }
 .google-rating svg {
   width: 13px;
   height: 13px;
-  color: var(--green);
+  color: #f5ca66;
 }
-.google-rating:hover strong {
+.google-rating:hover {
+  border-color: #f5ca66;
+}
+.google-rating:hover .review-count {
   text-decoration: underline;
   text-underline-offset: 3px;
 }
