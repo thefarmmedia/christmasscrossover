@@ -362,18 +362,22 @@ img{height:auto}
   min-height: 62px;
   margin: 0 auto 16px;
   padding: 10px 14px;
-  border: 1px solid #f5ca6652;
+  border: 1px solid #a13132;
   border-radius: 8px;
-  background: linear-gradient(115deg, #241c0e, #0c100b 86%);
+  background: linear-gradient(115deg, #2b1010, #100b0b 86%);
   color: var(--text-primary);
   text-align: left;
+}
+.google-rating .rating-summary {
+  display: grid;
+  gap: 5px;
+  padding-right: 12px;
+  border-right: 1px solid #a13132;
 }
 .google-rating .rating-score {
   display: flex;
   align-items: baseline;
   gap: 4px;
-  padding-right: 12px;
-  border-right: 1px solid #f5ca663d;
   white-space: nowrap;
 }
 .google-rating .rating-score strong {
@@ -391,24 +395,29 @@ img{height:auto}
   gap: 4px;
 }
 .google-rating .rating-stars {
-  color: #f5ca66;
-  font-size: 17px;
+  color: var(--red);
+  font-size: 13px;
   line-height: 1;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   white-space: nowrap;
 }
+.google-rating .rating-business {
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.35;
+}
 .google-rating .review-count {
-  color: var(--text-primary);
+  color: var(--text-secondary);
   font-size: 12px;
   line-height: 1.4;
 }
 .google-rating svg {
   width: 13px;
   height: 13px;
-  color: #f5ca66;
+  color: var(--red);
 }
 .google-rating:hover {
-  border-color: #f5ca66;
+  border-color: var(--red);
 }
 .google-rating:hover .review-count {
   text-decoration: underline;
