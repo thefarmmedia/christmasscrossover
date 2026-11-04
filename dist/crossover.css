@@ -439,9 +439,9 @@ img{height:auto}
 .ticket-alert {
   display: flex;
   align-items: stretch;
-  background: linear-gradient(90deg, #330808, #220606);
+  background: #030403eb;
   border-top: 2px solid var(--red);
-  border-bottom: 1px solid #a13132;
+  border-bottom: 1px solid #ffffff14;
   color: var(--text-primary);
   font-size: 11px;
   font-weight: 800;
@@ -472,7 +472,13 @@ img{height:auto}
 .ticket-alert-run > span:first-child {
   padding-left: 24px;
 }
+.ticket-alert-snowflake {
+  width: 12px;
+  height: 12px;
+  color: var(--red);
+}
 .ticket-alert-dot,
+.ticket-alert-tagline,
 .ticket-alert-cta {
   color: var(--green);
 }
