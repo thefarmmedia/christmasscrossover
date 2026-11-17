@@ -19,6 +19,7 @@
   <meta name="twitter:image" content="https://fieldofscreamsbranson.com/assets/fos-cover.jpg">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/cinzel.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="assets/fos-bg.jpg" as="image">
   <style>
     @font-face {
       font-family: "Cinzel";
@@ -33,72 +34,50 @@
       --rule: #2fbf2a;
     }
     * { box-sizing: border-box; }
-    html, body { margin: 0; }
+    html, body { margin: 0; height: 100%; }
     body {
-      background: #000;
+      background: #000 url("assets/fos-bg.jpg") right center / cover no-repeat fixed;
       color: #eee;
       font-family: "Cinzel", "Trajan Pro", Georgia, serif;
-      min-height: 100vh;
-      text-align: center;
       overflow-x: hidden;
     }
-    /* The cover's spiderweb texture, stretched behind the whole page */
-    .backdrop {
+    body::before {
+      content: "";
       position: fixed;
       inset: 0;
-      /* zoom into the web-only left edge of the cover so no logo text ghosts through */
-      background: url("assets/fos-cover.jpg") 0 50% / auto 340% repeat-x;
-      opacity: 0.22;
-      filter: blur(1px) grayscale(1);
-      z-index: 0;
+      background: linear-gradient(90deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.55) 40%, rgba(0,0,0,0) 65%);
       pointer-events: none;
     }
     main {
       position: relative;
-      z-index: 1;
       min-height: 100vh;
-      max-width: 1600px;
-      margin: 0 auto;
       display: flex;
-      flex-direction: column;
       align-items: center;
-      justify-content: center;
+      padding: 48px 16px 48px clamp(16px, 5vw, 120px);
     }
-    .cover {
+    .stack {
+      width: min(640px, 40vw);
+      text-align: center;
+    }
+    .logo {
       display: block;
       width: 100%;
       height: auto;
-      -webkit-mask-image: linear-gradient(to bottom, #000 82%, transparent);
-              mask-image: linear-gradient(to bottom, #000 82%, transparent);
-    }
-    .announce {
-      position: relative;
-      padding: clamp(8px, 2vw, 20px) 16px clamp(48px, 8vw, 96px);
-      width: 100%;
-    }
-    .announce::before {
-      content: "";
-      position: absolute;
-      left: 50%; top: 40%;
-      width: min(900px, 100%); height: 70%;
-      transform: translate(-50%, -50%);
-      background: radial-gradient(ellipse at center, rgba(69, 232, 58, 0.16), transparent 70%);
-      pointer-events: none;
+      filter: drop-shadow(0 0 18px rgba(69, 232, 58, 0.25));
     }
     .ruled {
       display: flex;
       align-items: center;
       justify-content: center;
       gap: clamp(10px, 2vw, 18px);
-      margin: 0 auto;
-      max-width: 760px;
+      margin: clamp(28px, 4vw, 48px) auto 0;
       color: var(--green);
       font-weight: 700;
-      font-size: clamp(0.8rem, 2.2vw, 1.35rem);
+      font-size: clamp(0.8rem, 1.3vw, 1.2rem);
       letter-spacing: 0.32em;
       text-transform: uppercase;
       text-shadow: 0 0 10px rgba(69, 232, 58, 0.5);
-      padding-left: 0.32em; /* balance trailing letter-spacing */
+      padding-left: 0.32em;
     }
     .ruled::before, .ruled::after {
       content: "";
@@ -110,38 +89,39 @@
     }
     .ruled::after { background: linear-gradient(90deg, var(--rule), transparent); }
     h1 {
-      margin: clamp(10px, 2vw, 18px) 0 clamp(8px, 1.5vw, 14px);
+      margin: clamp(8px, 1.5vw, 16px) 0 0;
       font-weight: 700;
-      font-size: clamp(2.6rem, 9.5vw, 7.5rem);
+      font-size: clamp(2.2rem, 4.6vw, 4.6rem);
       line-height: 1;
       letter-spacing: 0.02em;
       text-transform: uppercase;
+      white-space: nowrap;
       background: linear-gradient(180deg, var(--green-hi) 0%, var(--green) 45%, var(--green-deep) 100%);
       -webkit-background-clip: text;
               background-clip: text;
       color: transparent;
       filter: drop-shadow(0 3px 0 rgba(0,0,0,0.9)) drop-shadow(0 0 22px rgba(69, 232, 58, 0.35));
     }
-    .place {
-      margin: 0;
-      color: #f4f4f4;
-      font-weight: 600;
-      font-size: clamp(0.85rem, 2.4vw, 1.5rem);
-      letter-spacing: 0.4em;
-      padding-left: 0.4em;
-      text-transform: uppercase;
+    /* Phones and tablets: center everything, keep the skull in view behind */
+    @media (max-width: 900px) {
+      body { background-position: 72% center; background-attachment: scroll; }
+      body::before {
+        background: radial-gradient(ellipse at center, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.5) 60%, rgba(0,0,0,0.3) 100%);
+      }
+      main { justify-content: center; padding: 40px 16px; }
+      .stack { width: min(560px, 100%); }
+      .ruled { font-size: clamp(0.8rem, 3.4vw, 1.2rem); }
+      h1 { white-space: normal; font-size: clamp(2.6rem, 13vw, 4.5rem); }
     }
   </style>
 </head>
 <body>
-  <div class="backdrop" aria-hidden="true"></div>
   <main>
-    <img class="cover" src="assets/fos-cover.jpg" width="1598" height="608" alt="Field of Screams Branson — Haunted Attractions">
-    <section class="announce">
+    <div class="stack">
+      <img class="logo" src="assets/fos-logo.png" width="723" height="385" alt="Field of Screams Branson — Haunted Attractions — fieldofscreamsbranson.com">
       <div class="ruled">The 2027 Season</div>
       <h1>Coming Soon</h1>
-      <p class="place">Branson, Missouri</p>
-    </section>
+    </div>
   </main>
 </body>
 </html>
