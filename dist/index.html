@@ -63,59 +63,70 @@
       display: block;
       width: 100%;
       height: auto;
-      filter: drop-shadow(0 4px 10px rgba(0,0,0,0.85));
+      filter: drop-shadow(0 3px 8px rgba(0,0,0,0.9)) drop-shadow(0 0 12px rgba(8,237,6,0.2));
+      animation: logo-glow 4s ease-in-out infinite alternate;
     }
     .season {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 2.4cqw;
-      margin-top: 9cqw;
-      font-size: 3.6cqw;
-      font-weight: 900;
-      letter-spacing: 0.34em;
-      line-height: 1;
+      gap: clamp(10px, 2.4cqw, 20px);
+      margin-top: clamp(22px, 4cqw, 36px);
+      color: #f5fff3;
+      font-size: clamp(12px, 2.8cqw, 19px);
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      line-height: 1.5;
       text-transform: uppercase;
-      color: #fff;
-      text-shadow: 0 2px 0 #000, 0 0 8px rgba(0,0,0,0.9);
+      text-shadow: 0 2px 8px #000;
     }
-    .season span { padding-left: 0.34em; }
+    .season span {
+      padding-left: 0.18em;
+      white-space: nowrap;
+    }
     .season::before, .season::after {
       content: "";
-      flex: 1;
-      height: 0.9cqw;
-      min-height: 3px;
-      background: var(--green);
-      border: 1px solid #000;
-      box-shadow: 0 0 10px var(--green-glow);
+      flex: 0 1 110px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--green));
+      box-shadow: 0 0 8px rgba(8,237,6,0.32);
     }
+    .season::after { transform: rotate(180deg); }
     h1 {
-      margin: 2.6cqw 0 0;
-      font-weight: 900;
-      font-size: 10cqw;
-      line-height: 1.05;
-      letter-spacing: 0.04em;
-      padding-left: 0.04em;
+      margin: clamp(8px, 1.5cqw, 16px) 0 0;
+      color: #f5fff4;
+      font-size: clamp(32px, 7cqw, 64px);
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      line-height: 1.2;
       text-transform: uppercase;
-      white-space: nowrap;
-      background: linear-gradient(180deg, #ffffff 0%, #ffffff 30%, #08ed06 78%, #08ed06 100%);
-      -webkit-background-clip: text;
-              background-clip: text;
-      color: transparent;
-      -webkit-text-stroke: 0.35cqw #000;
-      paint-order: stroke fill;
-      filter: drop-shadow(0 0 14px var(--green-glow)) drop-shadow(0 3px 4px rgba(0,0,0,0.9));
+      text-shadow:
+        0 2px 5px #000,
+        0 0 8px rgba(8,237,6,0.68),
+        0 0 24px rgba(8,237,6,0.42);
+      animation: coming-soon-glow 3.6s ease-in-out infinite alternate;
     }
-    /* Phones and tablets: center everything, keep the skull in view behind */
+    @keyframes logo-glow {
+      from { filter: drop-shadow(0 3px 8px rgba(0,0,0,0.9)) drop-shadow(0 0 10px rgba(8,237,6,0.14)); }
+      to   { filter: drop-shadow(0 3px 8px rgba(0,0,0,0.9)) drop-shadow(0 0 20px rgba(8,237,6,0.38)); }
+    }
+    @keyframes coming-soon-glow {
+      from { text-shadow: 0 2px 5px #000, 0 0 6px rgba(8,237,6,0.40), 0 0 18px rgba(8,237,6,0.24); }
+      to   { text-shadow: 0 2px 5px #000, 0 0 12px rgba(8,237,6,0.82), 0 0 32px rgba(8,237,6,0.55); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .logo, h1 { animation: none; }
+    }
+    /* Phones and tablets: center the whole layout */
     @media (max-width: 900px) {
       body { background-position: 72% center; background-attachment: scroll; }
       body::before {
         background: radial-gradient(ellipse at center, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.5) 60%, rgba(0,0,0,0.3) 100%);
       }
-      main { justify-content: center; padding: 40px 16px; }
+      main { padding: 40px 16px; }
       .stack { width: min(600px, 100%); }
-      .season { font-size: 4.2cqw; }
-      h1 { font-size: 10.8cqw; }
+      .season { font-size: clamp(11px, 2.9cqw, 17px); }
+      h1 { font-size: clamp(30px, 8cqw, 50px); }
     }
   </style>
 </head>
