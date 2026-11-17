@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#000000">
   <title>Field of Screams Branson | 2027 Season Coming Soon</title>
-  <meta name="description" content="Field of Screams Branson haunted attractions. The 2027 season is coming soon.">
+  <meta name="description" content="Field of Screams Branson returns in 2027 with Carnival of Chaos, an all-new haunted attraction, and 9th Inning Nightmare.">
   <link rel="canonical" href="https://fieldofscreamsbranson.com/">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Field of Screams Branson | 2027 Season Coming Soon">
-  <meta property="og:description" content="Haunted attractions in Branson, Missouri. The 2027 season is coming soon.">
+  <meta property="og:description" content="Carnival of Chaos is all new for 2027, joining 9th Inning Nightmare at Field of Screams Branson.">
   <meta property="og:url" content="https://fieldofscreamsbranson.com/">
   <meta property="og:image" content="https://fieldofscreamsbranson.com/assets/fos-cover.jpg">
   <meta property="og:image:alt" content="Field of Screams Branson Haunted Attractions">
@@ -140,6 +140,81 @@
       .season { font-size: clamp(11px, 2.9cqw, 17px); }
       h1 { font-size: clamp(30px, 8cqw, 50px); }
     }
+
+    /* Preview of the two confirmed haunted attractions for the 2027 season. */
+    .attractions {
+      margin-top: clamp(32px, 5cqw, 48px);
+      padding-top: 22px;
+      border-top: 1px solid rgba(255,255,255,.16);
+    }
+    .attractions-heading {
+      margin: 0 0 22px;
+      color: #e4dedb;
+      font-family: "Cinzel", Georgia, serif;
+      font-size: clamp(11px, 2cqw, 14px);
+      font-weight: 700;
+      letter-spacing: .19em;
+      text-transform: uppercase;
+      text-shadow: 0 2px 8px #000;
+    }
+    .attractions-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .attraction {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 0;
+      min-height: 215px;
+      padding: 34px 14px 22px;
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: 10px;
+      background: linear-gradient(155deg, rgba(24,24,24,.86), rgba(3,3,3,.76));
+      box-shadow: 0 12px 35px rgba(0,0,0,.45), inset 0 1px rgba(255,255,255,.05);
+    }
+    .attraction--carnival {
+      border-color: rgba(236,55,55,.38);
+      box-shadow: 0 12px 35px rgba(0,0,0,.5), 0 0 26px rgba(220,18,18,.10);
+    }
+    .attraction--nightmare {
+      border-color: rgba(47,112,238,.30);
+      box-shadow: 0 12px 35px rgba(0,0,0,.5), 0 0 26px rgba(18,81,220,.09);
+    }
+    .attraction img {
+      display: block;
+      max-width: 100%;
+      width: 100%;
+      height: 157px;
+      object-fit: contain;
+      filter: drop-shadow(0 6px 10px rgba(0,0,0,.75));
+    }
+    .attraction--nightmare img { height: 148px; }
+    .attraction-new {
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 8px 15px;
+      border: 1px solid #e34747;
+      border-radius: 3px;
+      background: linear-gradient(110deg, #9f0707, #e22525 48%, #970707);
+      color: #fff;
+      font: 800 11px/1 "Cinzel", Georgia, serif;
+      letter-spacing: .13em;
+      white-space: nowrap;
+      text-shadow: 0 1px 2px #4c0000;
+      box-shadow: 0 0 17px rgba(220,23,23,.4);
+    }
+    @media (max-width: 620px) {
+      .attractions { margin-top: 33px; padding-top: 20px; }
+      .attractions-heading { margin-bottom: 23px; letter-spacing: .11em; }
+      .attractions-grid { grid-template-columns: 1fr; gap: 25px; }
+      .attraction { min-height: 190px; padding: 29px 15px 14px; }
+      .attraction img, .attraction--nightmare img { height: 153px; }
+    }
   </style>
 </head>
 <body>
@@ -148,6 +223,18 @@
       <img class="logo" src="assets/fos-logo.png" width="1925" height="535" alt="Field of Screams Branson — Haunted Attractions">
       <div class="season"><span>The 2027 Season</span></div>
       <h1>Coming Soon</h1>
+      <section class="attractions" aria-label="2027 Haunted Attractions">
+        <h2 class="attractions-heading">Two Terrifying Attractions Await</h2>
+        <div class="attractions-grid">
+          <article class="attraction attraction--carnival" aria-label="Carnival of Chaos, all new for 2027">
+            <span class="attraction-new">ALL NEW FOR 2027</span>
+            <img src="assets/carnival-of-chaos.png" width="1688" height="932" alt="Carnival of Chaos" loading="eager" decoding="async">
+          </article>
+          <article class="attraction attraction--nightmare" aria-label="9th Inning Nightmare">
+            <img src="assets/ninth-inning-nightmare.png" width="2048" height="682" alt="9th Inning Nightmare" loading="eager" decoding="async">
+          </article>
+        </div>
+      </section>
     </div>
   </main>
 </body>
