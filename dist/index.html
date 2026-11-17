@@ -28,16 +28,14 @@
       font-display: swap;
     }
     :root {
-      --green-hi: #d6ffaa;
-      --green: #50f03c;
-      --green-deep: #128c1e;
-      --rule: #2fbf2a;
+      --green: #08ed06;
+      --green-glow: rgba(8, 237, 6, 0.45);
     }
     * { box-sizing: border-box; }
     html, body { margin: 0; height: 100%; }
     body {
       background: #000 url("assets/fos-bg.jpg") right center / cover no-repeat fixed;
-      color: #eee;
+      color: #fff;
       font-family: "Cinzel", "Trajan Pro", Georgia, serif;
       overflow-x: hidden;
     }
@@ -53,84 +51,59 @@
       min-height: 100vh;
       display: flex;
       align-items: center;
-      padding: 48px 16px 48px clamp(16px, 5vw, 120px);
+      padding: 48px 16px 48px clamp(16px, 4vw, 100px);
     }
     .stack {
-      width: min(640px, 40vw);
+      width: min(720px, 46vw);
       text-align: center;
       container-type: inline-size;
     }
-    .title {
+    .logo {
       display: block;
       width: 100%;
       height: auto;
-      filter: drop-shadow(0 2px 0 rgba(0,0,0,0.9)) drop-shadow(0 0 16px rgba(80, 240, 60, 0.3));
+      filter: drop-shadow(0 4px 10px rgba(0,0,0,0.85));
     }
-    .branson, .fos {
-      color: #f6f6f6;
-      font-weight: 700;
-      text-shadow: 0 2px 6px rgba(0,0,0,0.9);
-    }
-    .branson {
-      margin-top: 1.2cqw;
-      font-size: 4cqw;
-      letter-spacing: 0.42em;
-      padding-left: 0.42em;
-      line-height: 1;
-    }
-    .ruled {
+    .season {
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 2.4cqw;
-      color: var(--green);
-      font-weight: 700;
-      letter-spacing: 0.32em;
-      text-transform: uppercase;
-      text-shadow: 0 0 10px rgba(80, 240, 60, 0.45);
+      margin-top: 9cqw;
+      font-size: 3.6cqw;
+      font-weight: 900;
+      letter-spacing: 0.34em;
       line-height: 1;
+      text-transform: uppercase;
+      color: #fff;
+      text-shadow: 0 2px 0 #000, 0 0 8px rgba(0,0,0,0.9);
     }
-    .ruled span { padding-left: 0.32em; }
-    .ruled::before, .ruled::after {
+    .season span { padding-left: 0.34em; }
+    .season::before, .season::after {
       content: "";
       flex: 1;
-      height: 2px;
-      min-width: 24px;
-      background: linear-gradient(90deg, transparent, var(--rule));
-      box-shadow: 0 0 8px rgba(80, 240, 60, 0.6);
+      height: 0.9cqw;
+      min-height: 3px;
+      background: var(--green);
+      border: 1px solid #000;
+      box-shadow: 0 0 10px var(--green-glow);
     }
-    .ruled::after { background: linear-gradient(90deg, var(--rule), transparent); }
-    .haunted { margin-top: 4.5cqw; font-size: 2.9cqw; }
-    .fos {
-      margin-top: 7cqw;
-      font-size: 8.5cqw;
-      line-height: 1;
-      font-weight: 600;
-    }
-    .url {
-      margin-top: 1.8cqw;
-      font-size: 2.3cqw;
-      font-weight: 700;
-      letter-spacing: 0.34em;
-      padding-left: 0.34em;
-      text-transform: uppercase;
-      color: var(--green);
-      text-shadow: 0 0 8px rgba(80, 240, 60, 0.4);
-    }
-    .season { margin-top: 9cqw; font-size: 3cqw; }
     h1 {
-      margin: 2.4cqw 0 0;
-      font-weight: 700;
-      font-size: 11.2cqw;
-      line-height: 1;
-      letter-spacing: 0.02em;
+      margin: 2.6cqw 0 0;
+      font-weight: 900;
+      font-size: 10cqw;
+      line-height: 1.05;
+      letter-spacing: 0.04em;
+      padding-left: 0.04em;
       text-transform: uppercase;
       white-space: nowrap;
-      background: linear-gradient(180deg, var(--green-hi) 0%, var(--green) 45%, var(--green-deep) 100%);
+      background: linear-gradient(180deg, #ffffff 0%, #ffffff 30%, #08ed06 78%, #08ed06 100%);
       -webkit-background-clip: text;
               background-clip: text;
       color: transparent;
-      filter: drop-shadow(0 2px 0 rgba(0,0,0,0.9)) drop-shadow(0 0 16px rgba(80, 240, 60, 0.3));
+      -webkit-text-stroke: 0.35cqw #000;
+      paint-order: stroke fill;
+      filter: drop-shadow(0 0 14px var(--green-glow)) drop-shadow(0 3px 4px rgba(0,0,0,0.9));
     }
     /* Phones and tablets: center everything, keep the skull in view behind */
     @media (max-width: 900px) {
@@ -139,22 +112,17 @@
         background: radial-gradient(ellipse at center, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.5) 60%, rgba(0,0,0,0.3) 100%);
       }
       main { justify-content: center; padding: 40px 16px; }
-      .stack { width: min(560px, 100%); }
-      .haunted { font-size: 3.2cqw; }
-      .url { font-size: 2.8cqw; }
-      .season { font-size: 3.8cqw; }
+      .stack { width: min(600px, 100%); }
+      .season { font-size: 4.2cqw; }
+      h1 { font-size: 10.8cqw; }
     }
   </style>
 </head>
 <body>
   <main>
     <div class="stack">
-      <img class="title" src="assets/fos-title.png" width="2836" height="523" alt="Field of Screams">
-      <div class="branson">BRANSON</div>
-      <div class="ruled haunted"><span>Haunted Attractions</span></div>
-      <div class="fos">FoS</div>
-      <div class="url">fieldofscreamsbranson.com</div>
-      <div class="ruled season"><span>The 2027 Season</span></div>
+      <img class="logo" src="assets/fos-logo.png" width="1925" height="535" alt="Field of Screams Branson — Haunted Attractions">
+      <div class="season"><span>The 2027 Season</span></div>
       <h1>Coming Soon</h1>
     </div>
   </main>
