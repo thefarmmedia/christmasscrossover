@@ -4,19 +4,35 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#000000">
-  <title>Field of Screams Branson | 2027 Season Coming Soon</title>
-  <meta name="description" content="Field of Screams Branson returns in 2027 with Carnival of Chaos, an all-new haunted attraction, and 9th Inning Nightmare.">
+  <title>Black Friday Specials | Field of Screams Branson</title>
+  <meta name="description" content="Black Friday specials end Friday, November 27 at 11:59 PM CT: $20 general admission at Field of Screams Branson and the $99 2027 Season Pass for Nixa and Branson.">
   <link rel="canonical" href="https://fieldofscreamsbranson.com/">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Field of Screams Branson | 2027 Season Coming Soon">
-  <meta property="og:description" content="Carnival of Chaos is all new for 2027, joining 9th Inning Nightmare at Field of Screams Branson.">
+  <meta property="og:title" content="Black Friday Specials | Field of Screams Branson">
+  <meta property="og:description" content="$20 general admission and the $99 2027 Season Pass with Fast Pass included. Ends Friday, November 27 at 11:59 PM CT.">
   <meta property="og:url" content="https://fieldofscreamsbranson.com/">
-  <meta property="og:image" content="https://fieldofscreamsbranson.com/assets/fos-cover.jpg">
-  <meta property="og:image:alt" content="Field of Screams Branson Haunted Attractions">
-  <meta property="og:image:width" content="1598">
-  <meta property="og:image:height" content="608">
+  <meta property="og:image" content="https://fieldofscreamsbranson.com/assets/bf-ga-20.jpg">
+  <meta property="og:image:alt" content="Field of Screams Branson Black Friday Special: $20 general admission ticket">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="1200">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://fieldofscreamsbranson.com/assets/fos-cover.jpg">
+  <meta name="twitter:image" content="https://fieldofscreamsbranson.com/assets/bf-ga-20.jpg">
+  <script>
+    /* Black Friday state, set before first paint. The specials switch off on their own at
+       Fri Nov 27 2026, 11:59:59 PM Central. Preview overrides: ?bf=on or ?bf=off */
+    (function (d) {
+      var c = d.documentElement.classList, q = location.search;
+      var END = Date.UTC(2026, 10, 28, 5, 59, 59);
+      var live = /[?&]bf=on\b/.test(q) || (!/[?&]bf=off\b/.test(q) && Date.now() < END);
+      if (!live) { c.add('bf-ended'); d.title = 'Field of Screams Branson | 2027 Season Coming Soon'; return; }
+      c.add('bf-live');
+      if (window.matchMedia && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        c.add('bf-intro');
+        /* Never leave the specials hidden if the effects script fails to load. */
+        setTimeout(function () { if (!window.__bfStarted) c.remove('bf-intro'); }, 4000);
+      }
+    })(document);
+  </script>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/cinzel.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="preload" href="assets/fos-bg.jpg" as="image">
@@ -216,8 +232,93 @@
       .attraction img, .attraction--nightmare img { height: 153px; }
     }
   </style>
+  <link rel="stylesheet" href="blackfriday.css?v=1">
+  <!-- Brushfire ticket widget: any element with data-brushfire="<widget id>" opens checkout. -->
+  <script src="https://widgetclient.brushfire.com/brushfire.min.js" defer></script>
 </head>
 <body>
+  <!-- BLACK FRIDAY SPECIALS: hides itself automatically after Fri Nov 27, 11:59 PM CT. -->
+  <section class="bf" id="black-friday" aria-labelledby="bf-title">
+    <div class="bf-inner">
+      <img class="bf-logo" src="assets/fos-logo.png" width="1925" height="535" alt="Field of Screams Branson — Haunted Attractions">
+      <p class="bf-kicker"><span>Limited time only</span></p>
+      <h2 class="bf-title" id="bf-title">
+        <span class="bf-sr">Black Friday Specials</span>
+        <span class="bf-title-black" aria-hidden="true">Black Friday</span>
+        <span class="bf-title-specials" aria-hidden="true">Specials</span>
+      </h2>
+      <div class="bf-deadline">
+        <p class="bf-ends">Ends <strong>Friday, Nov 27</strong> at 11:59 PM CT</p>
+        <div class="bf-countdown" id="bf-countdown" role="timer" aria-label="Time left on the Black Friday specials" hidden>
+          <span><b data-u="d">0</b><small>Days</small></span>
+          <span><b data-u="h">00</b><small>Hours</small></span>
+          <span><b data-u="m">00</b><small>Mins</small></span>
+          <span><b data-u="s">00</b><small>Secs</small></span>
+        </div>
+      </div>
+
+      <div class="bf-deals">
+        <article class="bf-deal bf-deal--ga" style="--n:0">
+          <div class="bf-card">
+            <div class="bf-art" style="--art:url('assets/bf-ga-20.webp')">
+              <img src="assets/bf-ga-20.webp" width="1200" height="1200" decoding="async" alt="Field of Screams Branson Black Friday Special: $20 general admission ticket, good for either attraction at Field of Screams Branson.">
+              <div class="fx-wrap" aria-hidden="true">
+                <span class="fx fx-loom" style="--x:86%;--y:17%;--rx:17%;--ry:23%"></span>
+                <span class="fx fx-lit" style="--x:49%;--y:13%;--rx:30%;--ry:14%;--d:4.2s;--dl:.8s;--peak:.5"></span>
+                <span class="fx fx-lit" style="--x:50%;--y:48%;--rx:27%;--ry:11%;--d:2.6s;--peak:.75"></span>
+                <span class="fx fx-eye" style="--x:79%;--y:14%;--s:10%"></span>
+                <span class="fx fx-eye" style="--x:92.2%;--y:13.4%;--s:10%;--dl:-.25s"></span>
+                <span class="fx fx-sheen" style="--l:18%;--r:18.5%;--t:60%;--btm:33.5%"></span>
+                <span class="fx fx-mist"><i></i><i></i></span>
+                <span class="fx fx-glare"></span>
+              </div>
+            </div>
+          </div>
+          <p class="bf-tag">Branson</p>
+          <h3 class="bf-deal-title"><span class="price">$20</span> General Admission</h3>
+          <p class="bf-deal-copy">Good for either attraction at Field of Screams Branson.</p>
+          <!-- Opens the Brushfire ticket widget (brushfire.min.js in <head>). -->
+          <button type="button" class="bf-btn" data-brushfire="d46e9d51-f8bf-468a-a692-97a5cbc102c8" data-dark="true">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16a1 1 0 0 1 1 1v3a2 2 0 0 0 0 4v3a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-3a2 2 0 0 0 0-4V7a1 1 0 0 1 1-1z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M15 7v10" stroke="currentColor" stroke-width="2" stroke-dasharray="2 2"/></svg>
+            Get $20 Tickets
+          </button>
+        </article>
+
+        <article class="bf-deal bf-deal--pass" style="--n:1">
+          <div class="bf-card">
+            <div class="bf-art" style="--art:url('assets/bf-season-pass-99.webp')">
+              <img src="assets/bf-season-pass-99.webp" width="1200" height="1200" decoding="async" alt="2027 Season Pass, $99, unlimited uses. Good for both attractions at Field of Screams Nixa and both attractions at Field of Screams Branson. Fast Pass included.">
+              <div class="fx-wrap" aria-hidden="true">
+                <span class="fx fx-strike"></span>
+                <span class="fx fx-lit fx-bolt" style="--x:50.5%;--y:13%;--rx:6%;--ry:17%;--b:2.4"></span>
+                <span class="fx fx-lit" style="--x:30%;--y:14%;--rx:16%;--ry:12%;--d:3.8s;--peak:.55"></span>
+                <span class="fx fx-lit" style="--x:70%;--y:13%;--rx:16%;--ry:12%;--d:3.8s;--dl:1.9s;--peak:.55"></span>
+                <span class="fx fx-lit fx-ghost" style="--x:9%;--y:26%;--rx:10%;--ry:13%;--b:1.9"></span>
+                <span class="fx fx-lit" style="--x:49%;--y:51.5%;--rx:20%;--ry:7.5%;--d:2.6s;--dl:.6s;--peak:.75"></span>
+                <span class="fx fx-eye is-red" style="--x:12.5%;--y:6.6%;--s:3.2%"></span>
+                <span class="fx fx-eye is-red" style="--x:13.8%;--y:6.6%;--s:3.2%"></span>
+                <span class="fx fx-eye" style="--x:88.4%;--y:10.6%;--s:8.5%;--dl:-1.4s"></span>
+                <span class="fx fx-eye" style="--x:96.1%;--y:10.4%;--s:8.5%;--dl:-1.6s"></span>
+                <span class="fx fx-sheen" style="--l:22.5%;--r:22.5%;--t:59%;--btm:34%;--dl:2.4s"></span>
+                <span class="fx fx-sheen" style="--l:17%;--r:17%;--t:84.8%;--btm:7.4%"></span>
+                <span class="fx fx-mist"><i></i><i></i></span>
+                <span class="fx fx-glare"></span>
+              </div>
+            </div>
+          </div>
+          <p class="bf-tag">Nixa + Branson</p>
+          <h3 class="bf-deal-title"><span class="price">$99</span> 2027 Season Pass</h3>
+          <p class="bf-deal-copy">Unlimited uses at both attractions in Nixa and both in Branson. Fast Pass included.</p>
+          <!-- Opens the Brushfire ticket widget (brushfire.min.js in <head>). -->
+          <button type="button" class="bf-btn" data-brushfire="d46e9d51-f8bf-468a-a692-97a5cbc102c8" data-dark="true">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16a1 1 0 0 1 1 1v3a2 2 0 0 0 0 4v3a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-3a2 2 0 0 0 0-4V7a1 1 0 0 1 1-1z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M15 7v10" stroke="currentColor" stroke-width="2" stroke-dasharray="2 2"/></svg>
+            Get Season Pass
+          </button>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <main>
     <div class="stack">
       <img class="logo" src="assets/fos-logo.png" width="1925" height="535" alt="Field of Screams Branson — Haunted Attractions">
@@ -237,5 +338,6 @@
       </section>
     </div>
   </main>
+  <script src="blackfriday.js?v=1" defer></script>
 </body>
 </html>

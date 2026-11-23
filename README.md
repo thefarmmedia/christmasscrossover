@@ -84,3 +84,14 @@ The `crossover.css` design system sets a shared reading width, consistent sectio
 ## Centered content
 
 Headings, body copy, date-card details, calendar actions, event essentials, venue information, FAQs, and footer controls use centered alignment. Desktop image/text columns are retained, and the transparent header logo remains in its top-left position. The responsive content gutters and fixed mobile ticket action are preserved.
+
+## Black Friday specials (November 2026)
+
+The homepage opens on the 2027 Coming Soon placeholder, then a WebGL green fog rolls in and clears onto the Black Friday specials: the $20 Branson general admission ticket and the $99 2027 Season Pass. The 2027 preview stays below them. The two supplied graphics are animated in place with glowing skull eyes, a lightning strike, pulsing prices, banner light sweeps, rolling mist, and pointer tilt.
+
+- Code: `dist/blackfriday.css`, `dist/blackfriday.js`, and the section near the top of `dist/index.html`.
+- Ticket buttons open the Brushfire widget `d46e9d51-f8bf-468a-a692-97a5cbc102c8` through `brushfire.min.js` in `<head>`.
+- **Auto shut-off:** the section, countdown, and fog switch off at Fri Nov 27 2026, 11:59:59 PM Central. The cutoff is set in two places, the inline `<head>` script and `END` in `blackfriday.js`. After the sale, update the `<title>`, description, and `og:` tags in `index.html`; they currently advertise the sale.
+- Preview overrides: `?bf=on` forces the specials and `?bf=off` shows the post-sale page.
+- Reduced-motion visitors skip the intro and see the specials with still ground fog.
+- `dist/assets/bf-ga-20.*` and `dist/assets/bf-season-pass-99.*` are 1200 px copies of the supplied graphics. `dist/assets/fog-tile.webp` is a generated mist texture.
