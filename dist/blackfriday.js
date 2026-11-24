@@ -19,6 +19,9 @@
 
   /* ---------- Fog renderer (WebGL, with a CSS fallback) ---------- */
   const AMBIENT = 0.55;
+  // Where in the fog pattern the intro starts: a stretch that stays evenly lit while the fog
+  // covers the screen (sampled on phone and desktop sizes).
+  const T_START = 276;
   const fog = { rise: 0.05, clear: 0, amb: 0.45, flash: 0 };
   let fogEl = null;
   let draw = () => {};
@@ -31,7 +34,19 @@ precision mediump float;
 #endif
 uniform vec2 uRes;
 uniform float uTime, uRise, uClear, uAmb, uFlash;
-float h(vec2 p){ p = fract(p * vec2(123.34, 456.21)); p += dot(p, p + 45.32); return fract(p.x * p.y); }
+// Integer-exact lattice hash: cell coordinates wrap to 0..288 and go through the
+// permutation polynomial (34x^2 + x) mod 289, so every intermediate value is an exact
+// integer below 2^24. Phone GPUs that fuse or reorder float math still get the same value
+// on both sides of a cell edge. (A fract()-based hash flips on a 1-ulp rounding difference,
+// which showed up on phones as hard, blocky seams in the fog.)
+float m289(float x){ return x - floor(x * (1. / 289.)) * 289.; }
+float h(vec2 i){
+  i = vec2(m289(i.x), m289(i.y));
+  float a = m289((i.x * 34. + 1.) * i.x);
+  a = m289(((a + i.y) * 34. + 1.) * (a + i.y));
+  a -= step(288.5, a) * 289.;
+  return a * (1. / 289.);
+}
 float n(vec2 p){ vec2 i = floor(p), f = fract(p); vec2 u = f * f * (3. - 2. * f);
   return mix(mix(h(i), h(i + vec2(1., 0.)), u.x), mix(h(i + vec2(0., 1.)), h(i + vec2(1., 1.)), u.x), u.y); }
 float fbm(vec2 p){ float v = 0., a = .5; mat2 m = mat2(1.6, 1.2, -1.2, 1.6);
@@ -67,6 +82,9 @@ void main(){
     const opts = { alpha: true, premultipliedAlpha: true, antialias: false, depth: false, stencil: false, powerPreference: 'low-power' };
     const gl = canvas.getContext('webgl', opts) || canvas.getContext('experimental-webgl', opts);
     if (!gl) return false;
+    // Without 32-bit floats in fragment shaders the noise cannot hold together: use the CSS fog.
+    const highp = gl.getShaderPrecisionFormat(gl.FRAGMENT_SHADER, gl.HIGH_FLOAT);
+    if (!highp || highp.precision < 23) return false;
     const compile = (type, src) => {
       const s = gl.createShader(type);
       gl.shaderSource(s, src);
@@ -91,12 +109,14 @@ void main(){
     ['uRes', 'uTime', 'uRise', 'uClear', 'uAmb', 'uFlash'].forEach(k => { U[k] = gl.getUniformLocation(prog, k); });
 
     const size = () => {
-      const s = innerWidth < 760 ? 0.42 : 0.5; // fog is soft, so half resolution is plenty
+      // Fog is soft, so a reduced resolution is plenty. Phones get a little more,
+      // since their small CSS viewport is stretched over many device pixels.
+      const s = innerWidth < 760 ? 0.6 : 0.5;
       canvas.width = Math.max(1, Math.round(innerWidth * s));
       canvas.height = Math.max(1, Math.round(innerHeight * s));
     };
     size();
-    addEventListener('resize', () => { size(); if (reduced) draw(0); }, { passive: true });
+    addEventListener('resize', () => { size(); if (reduced) draw(T_START); }, { passive: true });
 
     canvas.className = 'bf-fog';
     canvas.setAttribute('aria-hidden', 'true');
@@ -255,7 +275,7 @@ void main(){
     if (phase === 'steady' && now - lastDraw < 32) return;
     lastDraw = now;
     step(now);
-    draw((now - t0) / 1000 + 40);
+    draw((now - t0) / 1000 + T_START);
   }
 
   // Any input during the opening beat jumps straight into the fog.
@@ -274,7 +294,7 @@ void main(){
     // No intro, no animation: a single still frame of ground fog behind the page.
     fog.rise = 0; fog.amb = AMBIENT;
     if (fogEl) fogEl.classList.add('is-behind');
-    draw(40);
+    draw(T_START);
     armCards();
   } else {
     running = true;
@@ -294,7 +314,7 @@ void main(){
         phase = 'steady';
         Object.assign(fog, { rise: 0, clear: 0, amb: AMBIENT, flash: 0 });
         if (fogEl) fogEl.classList.add('is-behind');
-        draw(40);
+        draw(T_START);
       };
       setTimeout(watchdog, HOLD + RISE + 2500);
     }
