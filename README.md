@@ -90,7 +90,7 @@ Headings, body copy, date-card details, calendar actions, event essentials, venu
 The homepage opens on the 2027 Coming Soon placeholder, then a WebGL green fog rolls in and clears onto the Black Friday specials: the $20 Branson general admission ticket and the $99 2027 Season Pass. The 2027 preview stays below them. The two supplied graphics are animated in place with glowing skull eyes, a lightning strike, pulsing prices, banner light sweeps, rolling mist, and pointer tilt.
 
 - Code: `dist/blackfriday.css`, `dist/blackfriday.js`, and the section near the top of `dist/index.html`.
-- Ticket buttons open the Brushfire widget `cb02df13-cc55-48a7-8e1b-a2526fd1b3b2` through `brushfire.min.js` in `<head>`.
+- Ticket buttons open Brushfire widgets through `brushfire.min.js` in `<head>`: the $20 button uses `079ccceb-536a-4393-845d-d4973f473706` ("Black Friday" single-event tickets, event 645576) and the Season Pass button uses `39b9f9ca-c2ca-4b73-8f23-05448422d29c` (event 644907). Both allow fieldofscreamsbranson.com with and without www.
 - **Auto shut-off:** the section, countdown, and fog switch off at Fri Nov 27 2026, 11:59:59 PM Central. The cutoff is set in two places, the inline `<head>` script and `END` in `blackfriday.js`. After the sale, update the `<title>`, description, and `og:` tags in `index.html`; they currently advertise the sale.
 - Preview overrides: `?bf=on` forces the specials and `?bf=off` shows the post-sale page.
 - Reduced-motion visitors skip the intro and see the specials with still ground fog.
